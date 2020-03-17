@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import * as HF from "../algorithms/helperfunctions";
+
 export default {
   name: "Element",
   props: {},
@@ -24,13 +26,13 @@ export default {
         }
       }
     },
-    bubbleSort() {
-      for (let i = 0; i < this.array.length; i++) {
-        for (let j = 0; j < this.array.length; j++) {
+    async bubbleSort() {
+      let len = this.array.length;
+      for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len; j++) {
           if (this.array[j] > this.array[j + 1]) {
-            let temp = this.array[j];
-            this.array[j] = this.array[j + 1];
-            this.array[j + 1] = temp;
+            HF.arraySwap(this.array, j + 1, j);
+            await HF.sleep();
           }
         }
       }
