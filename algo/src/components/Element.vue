@@ -1,26 +1,33 @@
 <template>
   <div>
-    <div v-for="elem in array" v-bind:key="elem">{{elem}}</div>
+    <div v-for="elem in array" v-bind:key="elem" class="elem">{{ elem }}</div>
     <button v-on:click="bubbleSort">Sort</button>
-    <button v-on:click="spliceTest">Splice</button>
+    <button v-on:click="arrayPopulate">Reset</button>
+    <Bar :name="name" :value="prop" />
   </div>
 </template>
 
 <script>
 import * as HF from "../algorithms/helperfunctions";
+import Bar from "./Bar.vue";
 
 export default {
   name: "Element",
-  props: {},
+  components: {
+    Bar
+  },
   data() {
     return {
-      array: []
+      array: [],
+      name: "red",
+      prop: 20
     };
   },
   methods: {
     arrayPopulate() {
+      this.array = [];
       for (let i = 0; i < 40; i++) {
-        let n = Math.floor(Math.random() * 100);
+        let n = Math.floor(Math.random() * 100 + 5);
         if (!this.array.includes(n)) {
           this.array.push(n);
         }
@@ -37,9 +44,6 @@ export default {
         }
       }
       return this.array;
-    },
-    spliceTest() {
-      this.array.splice(1, 0, "99");
     }
   },
   created() {
@@ -48,5 +52,5 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 </style>
