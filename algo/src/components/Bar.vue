@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <p :style="{color: name, fontSize: value + 'px'}">TEST</p>
+  <div :style="{backgroundColor: color}" class="div">
+    <p :style="{height: value + 'px'}"></p>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    name: String, //temporary
+    color: String, //temporary
     value: Number
     //height: number
   }

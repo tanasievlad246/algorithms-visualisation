@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <div v-for="elem in array" v-bind:key="elem" class="elem">{{ elem }}</div>
-    <button v-on:click="bubbleSort">Sort</button>
-    <button v-on:click="arrayPopulate">Reset</button>
-    <Bar :name="name" :value="prop" />
+  <div class="main">
+    <div class="menu-bar">
+      <button v-on:click="bubbleSort">Sort</button>
+      <button v-on:click="arrayPopulate">Reset</button>
+    </div>
+    <div class="elements">
+      <Bar v-for="elem in array" v-bind:key="elem" :color="color" :value="elem" class="elem" />
+    </div>
   </div>
 </template>
 
@@ -19,21 +22,23 @@ export default {
   data() {
     return {
       array: [],
-      name: "red",
-      prop: 20
+      color: "red",
+      current: "blue",
+      comparing: "green"
     };
   },
   methods: {
     arrayPopulate() {
       this.array = [];
       for (let i = 0; i < 40; i++) {
-        let n = Math.floor(Math.random() * 100 + 5);
+        let n = Math.floor(Math.random() * 100 + 10);
         if (!this.array.includes(n)) {
           this.array.push(n);
         }
       }
     },
     async bubbleSort() {
+      //let elements = document.getElementsByTagName("Bar");
       let len = this.array.length;
       for (let i = 0; i < len; i++) {
         for (let j = 0; j < len; j++) {
@@ -53,4 +58,22 @@ export default {
 </script>
 
 <style lang="scss">
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .elements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+
+    .elem {
+      width: 25px;
+      margin-left: 2px;
+    }
+  }
+}
 </style>
