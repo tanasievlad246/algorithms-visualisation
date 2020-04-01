@@ -15,4 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+.div {
+  background-color: red;
+}
 </style>
