@@ -1,17 +1,19 @@
-//Bubble sort algorithms implementation
-let arr = [10, 15, 2, 3, 5, 15, 25, 31];
+import * as HF from '../algorithms/helperfunctions';
 
-function BubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
+export async function bubbleSort(arr) {
+  //let elements = document.getElementsByTagName("Bar");
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len; j++) {
+      if (arr[j].n > arr[j + 1].n) {
+        arr[j + 1].color = 'blue';
+        arr[j].color = 'green';
+        HF.arraySwap(arr, j + 1, j);
+        await HF.sleep();
+        arr[j].color = 'red';
+        arr[j + 1].color = 'red';
       }
     }
   }
   return arr;
 }
-
-console.log(BubbleSort(arr));

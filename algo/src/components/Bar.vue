@@ -1,6 +1,6 @@
 <template>
   <div :style="{backgroundColor: color}" class="div">
-    <p :style="{height: value + 'px'}"></p>
+    <p :style="{height: value + 'px'}">{{value}}</p>
   </div>
 </template>
 
@@ -17,5 +17,6 @@ export default {
 <style lang="scss">
 .div {
   background-color: red;
+  text-align: center;
 }
 </style>

@@ -9,5 +9,5 @@ export function arraySwap(array, indexA, indexB) {
 }
 
 export function sleep() {
-  return new Promise(resolve => setTimeout(resolve, 3000));
+  return new Promise(resolve => setTimeout(resolve, 100));
 }
