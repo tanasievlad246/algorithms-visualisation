@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Inria+Sans&display=swap');
+@import './reset.scss';
+
+@mixin thumb() {
+  box-sizing: border-box;
+  border: none;
+  width: 25px;
+  height: 25px;
+  background: black;
+  transition: 0.2s ease-in;
+  &:hover {
+    background: darkgray;
+  }
+}
+
+[type='range'] {
+  &,
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  .elements {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+
+    .elem {
+      width: 30px;
+      margin-left: 2px;
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      font-family: 'Inria Sans', sans-serif;
+      font-weight: bold;
+    }
+  }
+
+  .menu-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    background-color: bisque;
+    height: 50px;
+  }
+}
+
+.button-main {
+  width: 150px;
+  height: 25px;
+  margin-left: 20px;
+  text-align: center;
+  border: solid 1px black;
+  border-radius: 5px;
+  background-color: none;
+  font-weight: bold;
+  transition: 0.2s ease-in;
+  margin-top: 5px;
+  &:hover {
+    background-color: darkgrey;
+    color: white;
+  }
+}
+
+.slider {
+  -webkit-appearance: none;
+  background-color: darkgray;
+  border: none;
+  transition: 0.2s ease-in;
+  margin-left: 10px;
+  height: 30px;
+  &::-webkit-slider-thumb {
+    @include thumb;
+  }
+
+  &:hover {
+    background-color: black;
+  }
+}

@@ -1,10 +1,11 @@
 <template>
   <div class="main">
     <div class="menu-bar">
-      <button v-on:click="bubbleSort">Sort</button>
-      <button v-on:click="insertionSort">Insertion Sort</button>
-      <button v-on:click="selectionSort">selectionSort</button>
-      <button v-on:click="arrayPopulate" id="reset">Reset</button>
+      <button v-on:click="bubbleSort" class="button-main">Bubble Sort</button>
+      <button v-on:click="insertionSort" class="button-main">Insertion Sort</button>
+      <button v-on:click="selectionSort" class="button-main">Selection Sort</button>
+      <button v-on:click="arrayPopulate" id="reset" class="button-main">Reset</button>
+      <input type="range" min="1" max="100" value="50" class="slider" />
     </div>
     <div class="elements">
       <p v-for="i in array" :key="i" :style="'height:'+i+'px'" class="elem">{{i}}</p>
@@ -31,7 +32,7 @@ export default {
     arrayPopulate() {
       this.array = [];
       for (let i = 0; i <= 30; i++) {
-        let n = Math.floor(Math.random() * 100 + 10);
+        let n = Math.floor(Math.random() * 120 + 20);
         if (!this.array.includes(n)) {
           this.array.push(n);
         }
@@ -106,23 +107,5 @@ export default {
 </script>
 
 <style lang="scss">
-.main {
-  display: flex;
-  flex-direction: column;
-
-  .elements {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: absolute;
-    top: 40%;
-    left: 20%;
-
-    .elem {
-      width: 30px;
-      margin-left: 2px;
-      background-color: red;
-    }
-  }
-}
+@import "../styles/Element.scss";
 </style>
