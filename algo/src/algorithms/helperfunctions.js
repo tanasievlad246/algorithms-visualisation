@@ -8,6 +8,6 @@ export function arraySwap(array, indexA, indexB) {
   arraySetWithoutIndexes(array, indexB, x);
 }
 
-export function sleep() {
-  return new Promise(resolve => setTimeout(resolve, 100));
+export function sleep(sleepTime) {
+  return new Promise((resolve) => setTimeout(resolve, sleepTime));
 }

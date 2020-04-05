@@ -5,7 +5,7 @@
   box-sizing: border-box;
   border: none;
   width: 25px;
-  height: 25px;
+  height: 30px;
   background: black;
   transition: 0.2s ease-in;
   &:hover {
@@ -52,6 +52,11 @@
     align-content: center;
     background-color: bisque;
     height: 50px;
+
+    [name='speed'] {
+      height: 30px;
+      margin-top: 2px;
+    }
   }
 }
 

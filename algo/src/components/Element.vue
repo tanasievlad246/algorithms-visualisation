@@ -1,11 +1,24 @@
 <template>
   <div class="main">
     <div class="menu-bar">
-      <button v-on:click="bubbleSort" class="button-main">Bubble Sort</button>
-      <button v-on:click="insertionSort" class="button-main">Insertion Sort</button>
-      <button v-on:click="selectionSort" class="button-main">Selection Sort</button>
-      <button v-on:click="arrayPopulate" id="reset" class="button-main">Reset</button>
-      <input type="range" min="1" max="100" value="50" class="slider" />
+      <button v-on:click="bubbleSort(time)" class="button-main">Bubble Sort</button>
+      <button v-on:click="insertionSort(time)" class="button-main">Insertion Sort</button>
+      <button v-on:click="selectionSort(time)" class="button-main">Selection Sort</button>
+      <button v-on:click="arrayPopulate(bars)" id="reset" class="button-main">Reset</button>
+      <input
+        type="range"
+        min="5"
+        max="40"
+        value="20npm"
+        class="slider"
+        @change="barNums($event); arrayPopulate(bars)"
+      />
+      <select name="speed" id="speed" class="select" @change="timeSelect($event)">
+        <option value="100">100ms</option>
+        <option value="500">500ms</option>
+        <option value="1000">1s</option>
+        <option value="1500">1.5s</option>
+      </select>
     </div>
     <div class="elements">
       <p v-for="i in array" :key="i" :style="'height:'+i+'px'" class="elem">{{i}}</p>
@@ -23,22 +36,27 @@ export default {
   data() {
     return {
       array: [],
-      color: "",
-      current: "blue",
-      comparing: "green"
+      time: 50,
+      bars: 20
     };
   },
   methods: {
-    arrayPopulate() {
+    barNums(event) {
+      this.bars = event.target.value;
+    },
+    timeSelect(event) {
+      this.time = event.target.value;
+    },
+    arrayPopulate(barsN) {
       this.array = [];
-      for (let i = 0; i <= 30; i++) {
+      for (let i = 0; i <= barsN; i++) {
         let n = Math.floor(Math.random() * 120 + 20);
         if (!this.array.includes(n)) {
           this.array.push(n);
         }
       }
     },
-    async bubbleSort() {
+    async bubbleSort(sleepTime) {
       let len = this.array.length;
       let element = this.$el.getElementsByTagName("p");
       let btn = this.$el.querySelector("#reset");
@@ -49,7 +67,7 @@ export default {
             element[j].style.backgroundColor = "green";
             element[j + 1].style.backgroundColor = "blue";
             HF.arraySwap(this.array, j + 1, j);
-            await HF.sleep();
+            await HF.sleep(sleepTime);
             element[j].style.backgroundColor = "red";
             element[j + 1].style.backgroundColor = "red";
           }
@@ -57,7 +75,7 @@ export default {
       }
       btn.disabled = false;
     },
-    async insertionSort() {
+    async insertionSort(sleepTime) {
       let i,
         len = this.array.length,
         a = this.array,
@@ -74,11 +92,11 @@ export default {
         }
 
         HF.arraySetWithoutIndexes(a, j, el);
-        await HF.sleep();
+        await HF.sleep(sleepTime);
         btn.disabled = false;
       }
     },
-    async selectionSort() {
+    async selectionSort(sleepTime) {
       var minIdx,
         // temp,
         len = this.array.length,
@@ -95,13 +113,13 @@ export default {
         }
 
         HF.arraySwap(a, i, minIdx);
-        await HF.sleep();
+        await HF.sleep(sleepTime);
       }
       btn.disabled = false;
     }
   },
   created() {
-    this.arrayPopulate();
+    this.arrayPopulate(this.bars);
   }
 };
 </script>
