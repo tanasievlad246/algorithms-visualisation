@@ -6,11 +6,24 @@
   border: none;
   width: 25px;
   height: 30px;
-  background: black;
+  background: darkgray;
   transition: 0.2s ease-in;
+}
+
+body {
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: darkgray;
   &:hover {
-    background: darkgray;
+    color: white;
   }
+}
+
+.license-link {
+  float: right;
 }
 
 [type='range'] {
@@ -30,7 +43,7 @@
     align-items: center;
     position: absolute;
     top: 40%;
-    left: 20%;
+    left: 30%;
 
     .elem {
       width: 30px;
@@ -41,6 +54,7 @@
       text-align: center;
       flex-direction: column;
       font-family: 'Inria Sans', sans-serif;
+      color: white;
       font-weight: bold;
     }
   }
@@ -50,8 +64,8 @@
     flex-direction: row;
     justify-content: center;
     align-content: center;
-    background-color: bisque;
-    height: 50px;
+    background-color: rgba(27, 27, 27, 0.5);
+    height: 40px;
 
     [name='speed'] {
       height: 30px;
@@ -79,7 +93,7 @@
 
 .slider {
   -webkit-appearance: none;
-  background-color: darkgray;
+  background-color: black;
   border: none;
   transition: 0.2s ease-in;
   margin-left: 10px;

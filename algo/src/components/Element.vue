@@ -23,6 +23,7 @@
     <div class="elements">
       <p v-for="i in array" :key="i" :style="'height:'+i+'px'" class="elem">{{i}}</p>
     </div>
+    <a href="http://www.freepik.com">Designed by vectorpouch / Freepik</a>
   </div>
 </template>
 
