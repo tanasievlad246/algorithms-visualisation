@@ -12,20 +12,8 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### Vue JS sorting algorithm visualizer
+
+A web app that lets you visualise how some of the basic sorting algorithms sort an array of numbers
+
+# The app can is deployed here[https://tanasievlad246.github.io/algorithms-visualisation/]
